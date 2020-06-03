@@ -1,28 +1,52 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import Home from './homePage/home';
+import { Provider, Consumer } from './contextFn';
+import './index.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <p>
-            Edit <code>src/App.js</code> and save to reload.
-          </p>
-          <a
-            className="App-link"
-            href="https://reactjs.org"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Learn React
-          </a>
-        </header>
-      </div>
-    );
+// const Context = React.createContext();
+// const Provider = Context.Provider;
+// const Consumer = Context.Consumer;
+
+const store = {
+  user: {
+    name: 'qwer',
+    age: '27'
   }
 }
 
-export default App;
+const childHoc = Com => props => {
+  return(
+    <div className="border">
+      <Com {...props} />
+    </div>
+  )
+}
+
+@childHoc
+class Child extends Component {
+  render() {
+    return(
+    <div className="border">child:-------{this.props.name}</div>
+    )
+  }
+}
+// function Child(props) {
+//   console.log(props);
+//   return(
+//     <div>child:-------{props.user.name}</div>
+//   )
+// }
+
+
+export default function App(props) {
+  const ChildHoc = childHoc(Child);
+  return(
+      <div>
+        lalalala
+        <Provider value={store}>
+          <Home />
+        </Provider>
+        <ChildHoc name="zcg" />
+      </div>
+    )
+}
