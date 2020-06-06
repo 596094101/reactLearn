@@ -7,9 +7,8 @@ export default function AddFriut(props) {
   }
   const addFriut = () => {
     const { setFriuits, fruits } = props;
-    const newFruits = fruits.concat(name)
-    setFriuits(newFruits);
-    setName('')
+    // const newFruits = fruits.concat(name)
+    setFriuits(name);
   }
   return(
     <div>

@@ -2,8 +2,9 @@ import React, { Component, useState } from 'react';
 // import Home from './homePage/home';
 // import Layout from './layout/layout';
 // import { Provider, Consumer } from './contextFn';
-import FruitList from './firtList';
-import AddFruit from './addFruit';
+// import FruitList from './fiurtList';
+// import AddFruit from './addFruit';
+import FiurtListReducer from './fiurtListReducer';
 import './index.css';
 
 // const Context = React.createContext();
@@ -55,9 +56,9 @@ export default function App(props) {
         {/* <Layout>
           <div>lalalalal</div>
         </Layout> */}
-        <FruitList fruits={fruits} />
+        <FiurtListReducer />
         {/* <button>添加</button> */}
-        <AddFruit setFriuits={setFriuits} fruits={fruits} />
+        {/* <AddFruit setFriuits={setFriuits} fruits={fruits} /> */}
       </div>
     )
 }
